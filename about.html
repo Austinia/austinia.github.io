@@ -6,6 +6,344 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./style.css">
   <title>기말고사2014102120김도윤</title>
+  <style>
+    html,
+body,
+div,
+span,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+abbr,
+address,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+samp,
+small,
+strong,
+sub,
+sup,
+var,
+b,
+i,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+summary,
+time,
+mark,
+audio,
+video,
+content {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  line-height: 1;
+  display: grid;
+  width: 100%;
+  height: 100%;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 10vw 30vw 10vw;
+  grid-gap: 1em;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+content {
+  display: block;
+}
+
+header,
+footer,
+content,
+aside {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+header {
+  grid-column: 1 / span 5;
+  height: 15vw;
+  font-size: xx-large;
+  font-weight: bold;
+  font-family: fantasy;
+}
+
+content {
+  grid-column: 1 / span 5;
+}
+
+.home {
+  justify-content: start;
+  font-family: fantasy;
+  overflow: hidden;
+}
+
+.home h1,
+h3,
+p,
+ol > li {
+  font-size: medium;
+  margin: 5px;
+}
+
+.home h3 {
+  text-align: right;
+}
+
+.home ol {
+  margin: 50px;
+}
+
+.Profile {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  padding: 10px;
+  font-family: fantasy;
+}
+
+.Profile h1 {
+  margin: 20px;
+  font-size: xx-large;
+  border-bottom: solid 2px black;
+}
+
+table {
+  font-size: medium;
+  margin: 50px;
+}
+
+table tr td:last-child {
+  text-align: center;
+}
+
+.Works {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  width: 100%;
+  height: 100%;
+  font-family: fantasy;
+}
+
+.Works ul {
+  text-align: center;
+  margin: auto;
+  list-style: none;
+}
+
+.Works ul > li {
+  margin: 30px;
+}
+
+#frame {
+  width: 100%;
+  height: 100%;
+  border-left: solid 2px purple;
+}
+
+aside {
+  grid-column: 1 / span 5;
+  flex-direction: column;
+  justify-content: start;
+  padding: 20px;
+  font-family: fantasy;
+}
+
+.roundimage {
+  width: 100px;
+  height: 100px;
+  border-radius: 70%;
+  overflow: hidden;
+}
+
+.profileimg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.asidelist {
+  margin-top: 30px;
+  list-style: none;
+  display: block;
+}
+
+.asidelist li {
+  margin-bottom: 30px;
+}
+
+footer {
+  grid-column: 1 / span 5;
+  justify-content: center;
+  display: none;
+}
+
+svg {
+  animation: fill 0.5s linear forwards 2.2s;
+}
+
+@keyframes fill {
+  from {
+    fill: white;
+  }
+  to {
+    fill: black;
+  }
+}
+svg path {
+  stroke: black;
+  stroke-width: 1;
+  animation: stroke 1s linear infinite;
+}
+@keyframes stroke {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+svg path {
+  stroke-dasharray: 150px;
+  stroke-dashoffset: 150px;
+}
+
+@media all and (min-width: 640px) {
+  content {
+    grid-column: 1 / span 3;
+  }
+  aside {
+    grid-column: span 2;
+  }
+  footer {
+    display: flex;
+  }
+}
+
+.scene {
+  width: 100%;
+  height: 100%;
+  perspective: 3000px;
+}
+
+.cube {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform-style: preserve-3d;
+}
+
+.cube__face {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  text-align: center;
+  font-family: fantasy;
+  color: white;
+  text-transform: uppercase;
+  line-height: 12;
+}
+.cube__face--front {
+  transform: rotateY(0deg) translateZ(100px);
+  background-color: red;
+}
+.cube__face--right {
+  transform: rotateY(90deg) translateZ(100px);
+  background-color: blue;
+}
+.cube__face--back {
+  transform: rotateY(180deg) translateZ(100px);
+  background-color: green;
+}
+.cube__face--left {
+  transform: rotateY(-90deg) translateZ(100px);
+  background-color: black;
+}
+.cube__face--top {
+  transform: rotateX(90deg) translateZ(100px);
+  background-color: gray;
+}
+.cube__face--bottom {
+  transform: rotateX(-90deg) translateZ(100px);
+  background-color: pink;
+}
+
+.cube:hover {
+  animation: rotate 2s linear infinite;
+}
+@keyframes rotate {
+  to {
+    transform: rotateY(360deg);
+  }
+}
+
+  </style>
 </head>
 <body>
   <header>
